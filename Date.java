@@ -11,7 +11,8 @@ public class Date
     private int _day;
     private int _month; 
     private int _year; 
-    private final int DEFAULT_DAY = 1, DEFAULT_MONTH = 1, DEFAULT_YEAR = 2000;
+    private final int DEFAULT_DAY = 1, DEFAULT_MONTH = 1, DEFAULT_YEAR = 2000,MAX_YEAR = 9999, MIN_YEAR = 1000, MAX_MONTH = 12, MIN_MONTH =1; 
+    private final int END_OF_MONTH_31 = 31, END_OF_MONTH_30 = 30, END_OF_MONTH_29 = 29, END_OF_MONTH_28 = 28 , BEGGINING_OF_MONTH = 1;
     // constructors 
     /**
     * creates a new Date object
@@ -171,7 +172,7 @@ public class Date
             case 5:
             case 7:
             case 8:
-            case 10: if (other._day == 31)
+            case 10: if (other._day == END_OF_MONTH_31)
                      {
                          other._day = 1;
                          ++other._month;
@@ -183,7 +184,7 @@ public class Date
             case 4:
             case 6:
             case 9:
-            case 11: if (other._day == 30)
+            case 11: if (other._day == END_OF_MONTH_30)
                      {
                          other._day = 1;
                          ++other._month;
@@ -192,9 +193,9 @@ public class Date
                      else 
                          ++other._day;
                          break;
-            case 2: if (((other._year % 4 == 0 && (other._year % 100 != 0 || other._year % 400 != 0))))
+            case 2: if (this.isLeap() == true)
                     { 
-                        if (other._day == 29)
+                        if (other._day == END_OF_MONTH_29)
                         {
                             other._day = 1;
                             ++other._month;
@@ -204,7 +205,7 @@ public class Date
                             ++other._day;
                     }
                     else 
-                        if (other._day == 28)
+                        if (other._day == END_OF_MONTH_28)
                         {
                             other._day = 1;
                             ++other._month;
@@ -213,7 +214,7 @@ public class Date
                         else
                             ++other._day;
                             break;                 
-            case 12: if (other._day == 31)
+            case 12: if (other._day == END_OF_MONTH_31)
                      {
                         other._day = 1;
                         other._month = 1;
@@ -238,7 +239,7 @@ public class Date
     
     private boolean isValidDate(int day,int month, int year)
     {
-        if (year > 9999 || year < 1000 || month > 12 || month < 1)
+        if (year > MAX_YEAR || year < MIN_YEAR || month > MAX_MONTH || month < MIN_MONTH)
             {
                 return false;
             }
@@ -252,32 +253,40 @@ public class Date
                     case 7:
                     case 8:
                     case 10:
-                    case 12: if (day >= 1 && day <= 31)
+                    case 12: if (day >= BEGGINING_OF_MONTH && day <= END_OF_MONTH_31)
                         {
                             return true;
                         }
                     case 4:
                     case 6:
                     case 9:
-                    case 11: if (day >= 1 && day <= 30)
+                    case 11: if (day >= BEGGINING_OF_MONTH && day <= END_OF_MONTH_30)
                                 {
                                     return true;
                                 }  
-                    case 2: if(((_year % 4 == 0 && (_year % 100 != 0 || _year % 400 != 0))))
+                    case 2: if(this.isLeap() == true)
                                 {
-                                    if (day >= 1 && day <= 29)
+                                    if (day >= BEGGINING_OF_MONTH && day <= END_OF_MONTH_29)
                                         return true;            
                                 } 
                             else
                                 {
-                                    if (day >=1 && day <= 28)
+                                    if (day >= BEGGINING_OF_MONTH && day <= END_OF_MONTH_28)
                                         return true;
                                 }
                     break;
                     }
             }
     return false;      
-    }   
+    }
+    
+    private boolean isLeap()
+    {
+        if ((_year % 4 == 0) && (_year % 100 != 0 || _year % 400 != 0))
+            return true;
+        else
+            return false;
+    }
 }
         
              

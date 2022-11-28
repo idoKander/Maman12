@@ -12,7 +12,7 @@ public class Rent
     private Car _car;
     private Date _pickDate;
     private Date _returnDate;
-    private final int A_PRICE = 100, B_PRICE = 150, C_PRICE = 180, D_PRICE = 240;
+    private final int A_PRICE = 100, B_PRICE = 150, C_PRICE = 180, D_PRICE = 240, DAYS_IN_WEEK = 7;
     private final double DISCOUNT = 0.9;
     
     //constructors
@@ -135,13 +135,13 @@ public class Rent
       int daysWithoutDiscount = (int)(rentDays % 7);  // 9%7 is 2 as you have 2 days left out of one week
       int price = 0;
       if (_car.getType() == 'A')
-          price = (int)(weeksWithDiscount * A_PRICE * DISCOUNT * 7) + (daysWithoutDiscount * A_PRICE);
+          price = (int)(weeksWithDiscount * A_PRICE * DISCOUNT * DAYS_IN_WEEK) + (daysWithoutDiscount * A_PRICE);
       if (_car.getType() == 'B')
-          price = (int)(weeksWithDiscount * B_PRICE * DISCOUNT * 7) + (daysWithoutDiscount * B_PRICE);
+          price = (int)(weeksWithDiscount * B_PRICE * DISCOUNT * DAYS_IN_WEEK) + (daysWithoutDiscount * B_PRICE);
       if (_car.getType() == 'C')
-          price = (int)(weeksWithDiscount * C_PRICE * DISCOUNT * 7) + (daysWithoutDiscount * C_PRICE);
+          price = (int)(weeksWithDiscount * C_PRICE * DISCOUNT * DAYS_IN_WEEK) + (daysWithoutDiscount * C_PRICE);
       if (_car.getType() == 'D')
-          price = (int)(weeksWithDiscount * D_PRICE * DISCOUNT * 7) + (daysWithoutDiscount * D_PRICE); 
+          price = (int)(weeksWithDiscount * D_PRICE * DISCOUNT * DAYS_IN_WEEK) + (daysWithoutDiscount * D_PRICE); 
       return price;
     }
     
