@@ -46,25 +46,33 @@ public class Car
         this(other._id, other._type, other._brand, other._isManual);
     }
     
-    /** gets the ID */
+    /** gets the ID 
+     * @return the id of the car
+     */
     public int getId()
     {
         return _id;
     }
     
-    /** gets the type */
+    /** gets the type 
+     * @return the type of the car
+     */
     public char getType()
     {
         return _type;
     }
     
-    /** gets the brand */
+    /** gets the brand
+     * @return the brand of the car
+     */
     public String getBrand()
     {
         return _brand;
     }
     
-    /** returns if car's gear is manuel */
+    /** returns if car's gear is manuel 
+     * @return true or false, if the gear of the car is manuel 
+     */
     public boolean isManual()
     {
         return _isManual;
@@ -106,6 +114,7 @@ public class Car
     
     /**
      * presents the date as a string
+     * @return a string represents all of the objects of the car
      */
     public String toString()
     {

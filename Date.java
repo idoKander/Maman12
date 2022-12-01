@@ -39,20 +39,26 @@ public class Date
          this(other._day, other._month, other._year);
     }
     
-    /** gets the Day */
+    /** gets the Day 
+     * @return the day in the month of the date
+     */
     public int getDay()
     {
         return _day;
     }
     
-    /** gets the Month*/
+    /** gets the Month
+     * @return the month of the date
+     */
 
     public int getMonth()
     {
         return _month;
     }
     
-    /** gets the Year*/
+    /** gets the Year
+     * @return the year of the date 
+     */
     public int getYear()
     {
         return _year;
@@ -140,6 +146,7 @@ public class Date
     
     /**
      * presents the date as a string
+     * @return a string represents the date according to specific terms
      */
     public String toString()
     {
@@ -161,6 +168,7 @@ public class Date
     
     /**
      * calculates the date one day after the given date
+     * @return the day after the given date 
      */
     public Date tomorrow()
     {

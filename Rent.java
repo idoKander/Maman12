@@ -48,25 +48,33 @@ public class Rent
         this(other._name, other._car, other._pickDate, other._returnDate);
     }
     
-    /** gets the Car */
+    /** gets the Car 
+     * @return the car who's being rented 
+     */
     public Car getCar()
     {
         return _car;
     }
     
-    /** gets the Name */
+    /** gets the Name 
+     * @return the name of renter
+     */
     public String getName()
     {
         return _name; 
     }
     
-    /** gets the Pick-up Date */
+    /** gets the Pick-up Date 
+     * @return the date the rent starts 
+     */
     public Date getPickDate()
     {
         return _pickDate;
     }
     
-    /** gets the Return Date */
+    /** gets the Return Date 
+     * @return the date the rent ends 
+     */
     public Date getReturnDate()
     {
         return _returnDate;
@@ -80,7 +88,7 @@ public class Rent
         _car = car;
     }
     
-    /** sets the Name
+    /** sets the name of renter
      * @param name the value to be set 
      */
     public void setName(String name)
@@ -205,6 +213,7 @@ public class Rent
     
     /**
      * presents the rent as a string format 
+     * @return a string who shows all the data of the rent 
      */
     public String toString()
     {
